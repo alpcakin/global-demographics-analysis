@@ -64,10 +64,40 @@ global-demographics-analysis/
 
 - **Python 3.x**: Core analysis language
 - **pandas**: Data manipulation and transformation
+- **PostgreSQL**: Advanced SQL queries for temporal and cohort analysis
+- **psycopg2**: Python-PostgreSQL integration
 - **plotly**: Interactive visualizations and static chart export
 - **jupyter**: Notebook environment for exploratory analysis
 - **kaleido**: PNG export for Plotly figures
 
+## SQL Analysis
+
+In addition to Python-based analysis, this project includes advanced SQL queries demonstrating temporal analysis and cohort tracking:
+
+### Key SQL Queries
+
+**1. Replacement Level Crossing Analysis**
+- Identifies when each country first dropped below 2.1 TFR
+- Calculates years spent below replacement level
+- **Finding**: Czechia has been below replacement for 64 years (since 1960), followed by Serbia (61 years) and Japan (60 years)
+
+**2. Fertility Decline Velocity (2014-2023)**
+- Measures rate of TFR change over the past decade
+- Calculates both absolute and percentage changes
+- **Finding**: South Korea experienced the steepest decline (-40.2%), followed by China (-43.5% from higher baseline)
+
+**3. Dependency Ratio Growth Rate (1990-2024)**
+- Tracks old-age dependency ratio increases over 34 years
+- Identifies countries facing the most rapid aging
+- **Finding**: South Korea's ratio increased 290% (7.05→27.47), Thailand 268%, Japan 191% (17.41→50.66)
+
+### SQL Implementation
+
+All queries are available in the `sql/` directory and demonstrate:
+- Common Table Expressions (CTEs)
+- Window functions and self-joins
+- Aggregate functions with conditional logic
+- Temporal analysis and cohort tracking
 ## Installation & Setup
 ```bash
 # Clone the repository
@@ -80,6 +110,8 @@ pip install pandas numpy plotly jupyter kaleido
 # Launch Jupyter Notebook
 jupyter notebook
 ```
+# Install required packages
+pip install pandas numpy plotly jupyter kaleido psycopg2-binary
 
 ## Reproducing the Analysis
 
